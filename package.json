@@ -1,0 +1,26 @@
+{
+  "name": "tcc-unifin",
+  "version": "1.0.0",
+  "description": "App that will map lost pets",
+  "main": "src/server.js",
+  "author": "Matheus Braun",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "mongoose": "^5.9.3",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "nodemon": "^2.0.2"
+  }
+}
