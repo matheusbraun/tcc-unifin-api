@@ -1,3 +1,5 @@
+require('dotenv/config');
+
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
@@ -14,12 +16,16 @@ const app = express();
 mongoose.connect(dbConnectionUrl, dbConnectionOptions);
 
 app.use(express.json());
-app.use(morgan('common'));
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
 
 app.use(petsRoute);
-app.use('/pets', express.static(path.resolve(__dirname, '..', 'tmp')));
+app.use(
+  '/files',
+  express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')),
+);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -26,10 +26,10 @@ module.exports = {
       coordinates: [longitude, latitude],
     };
 
-    const { path } = req.file;
+    const { key, location: image_url = '' } = req.file;
 
     try {
-      let pet = await Pet.findById(userId);
+      let pet = '';
 
       if (!pet) {
         pet = await Pet.create({
@@ -37,7 +37,8 @@ module.exports = {
           description,
           pet_description: petDescription,
           user_id: userId,
-          image: path,
+          image_url,
+          image_key: key,
           location,
         });
       }
