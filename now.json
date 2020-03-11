@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "name": "tcc-unifin",
+  "builds": [
+    {
+      "src": "src/server.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "src/server.js"
+    }
+  ],
+  "alias": ["tcc-unifin"],
+  "env": {
+    "NODE_ENV": "production",
+    "APP_URL": "https://tcc-unifin.now.sh",
+    "STORAGE_TYPE": "s3",
+    "BUCKET_NAME": "tcc-unifin",
+    "DB_USER": "@tcc-unifin-db-user",
+    "DB_PASSWORD": "@tcc-unifin-db-password",
+    "DB_CLUSTER": "@tcc-unifin-db-cluster",
+    "DB_NAME": "@tcc-unifin-db-name",
+    "ACCESS_KEY_ID": "@tcc-unifin-aws-access-key-id",
+    "SECRET_ACCESS_KEY": "@tcc-unifin-aws-secret-access-key",
+    "DEFAULT_REGION": "us-east-2"
+  }
+}

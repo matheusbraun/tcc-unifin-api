@@ -14,9 +14,10 @@ module.exports = {
   async store(req, res, next) {
     const {
       title,
+      size,
+      color,
+      petType,
       description,
-      petDescription,
-      userId,
       latitude,
       longitude,
     } = req.body;
@@ -34,9 +35,10 @@ module.exports = {
       if (!pet) {
         pet = await Pet.create({
           title,
+          size,
+          color,
+          pet_type: petType,
           description,
-          pet_description: petDescription,
-          user_id: userId,
           image_url,
           image_key: key,
           location,

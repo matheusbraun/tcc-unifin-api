@@ -20,10 +20,11 @@ const stringRequiredOptions = {
 const PetSchema = new mongoose.Schema(
   {
     title: stringRequiredOptions,
+    size: stringRequiredOptions,
+    color: stringRequiredOptions,
+    pet_type: stringRequiredOptions,
     description: stringRequiredOptions,
-    pet_description: stringRequiredOptions,
-    user_id: stringRequiredOptions,
-    image_url: stringRequiredOptions,
+    image_url: String,
     image_key: stringRequiredOptions,
     location: {
       type: PointSchema,

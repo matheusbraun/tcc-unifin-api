@@ -20,7 +20,11 @@ const storageTypes = {
     },
   }),
   s3: multerS3({
-    s3: new aws.S3(),
+    s3: new aws.S3({
+      accessKeyId: process.env.ACCESS_KEY_ID,
+      secretAccessKey: process.env.SECRET_ACCESS_KEY,
+      region: process.env.DEFAULT_REGION,
+    }),
     bucket: process.env.BUCKET_NAME,
     contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: 'public-read',
