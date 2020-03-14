@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 const Pet = require('../models/Pet');
 
 module.exports = {
@@ -12,15 +13,7 @@ module.exports = {
   },
 
   async store(req, res, next) {
-    const {
-      title,
-      size,
-      color,
-      petType,
-      description,
-      latitude,
-      longitude,
-    } = req.body;
+    const { title, specie, description, latitude, longitude } = req.body;
 
     const location = {
       type: 'Point',
@@ -35,9 +28,7 @@ module.exports = {
       if (!pet) {
         pet = await Pet.create({
           title,
-          size,
-          color,
-          pet_type: petType,
+          specie,
           description,
           image_url,
           image_key: key,

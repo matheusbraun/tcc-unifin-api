@@ -20,9 +20,7 @@ const stringRequiredOptions = {
 const PetSchema = new mongoose.Schema(
   {
     title: stringRequiredOptions,
-    size: stringRequiredOptions,
-    color: stringRequiredOptions,
-    pet_type: stringRequiredOptions,
+    specie: stringRequiredOptions,
     description: stringRequiredOptions,
     image_url: String,
     image_key: stringRequiredOptions,
