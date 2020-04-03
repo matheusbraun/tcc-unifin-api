@@ -1,5 +1,6 @@
 /* eslint-disable object-curly-newline */
 const Pet = require('../models/Pet');
+const { findConnections, sendMessage } = require('../websocket');
 
 module.exports = {
   async index(req, res, next) {
@@ -13,7 +14,14 @@ module.exports = {
   },
 
   async store(req, res, next) {
-    const { title, specie, description, latitude, longitude } = req.body;
+    const {
+      title,
+      specie,
+      description,
+      latitude,
+      longitude,
+      filter,
+    } = req.body;
 
     const location = {
       type: 'Point',
@@ -35,6 +43,10 @@ module.exports = {
           location,
         });
       }
+
+      const sendSocketMessageTo = findConnections(filter);
+
+      sendMessage(sendSocketMessageTo, 'new-pet', pet);
 
       return res.json(pet);
     } catch (err) {
