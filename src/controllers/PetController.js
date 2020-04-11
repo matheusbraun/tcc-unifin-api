@@ -44,7 +44,7 @@ module.exports = {
         });
       }
 
-      const sendSocketMessageTo = findConnections(filter);
+      const sendSocketMessageTo = findConnections(JSON.parse(filter));
 
       sendMessage(sendSocketMessageTo, 'new-pet', pet);
 

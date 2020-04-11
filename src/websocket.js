@@ -36,7 +36,9 @@ exports.findConnections = ({ latitude, longitude, distance, specie }) => {
     connection =>
       calculateDistance({ latitude, longitude }, connection.coordinates) <
         distance &&
-      speciesToFilter.some(specie => specie === connection.specie),
+      speciesToFilter.some(specie =>
+        connection.specie ? specie === connection.specie : true,
+      ),
   );
 };
 

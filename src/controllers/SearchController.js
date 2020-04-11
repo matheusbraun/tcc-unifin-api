@@ -30,7 +30,7 @@ module.exports = {
               type: 'Point',
               coordinates: [longitude, latitude],
             },
-            $maxDistance: distance * 1000,
+            $maxDistance: parseInt(distance, 10) * 1000,
           },
         },
       });
